@@ -14,28 +14,39 @@ $(function () {
 
     allMastheads.css("margin", mastheadMargin);
 
-    //working accordion code -- needs to be smoother
-    $('.accordion > .logo-wrapper').click(function (event) {
+    //working accordion code
+    $('.accordion > .masthead').click(function (event) {
       var contentHeight = $('.active').next().height();
       var topPos = $(this).position();
 
+      //Adjusts masthead margins
       if ($(this).hasClass('active')) {
-        $(allMastheads).css("margin", mastheadMargin);
         $(this).next().css({
           "position": "relative", 
           "top": marginTopFix, 
           "right": marginRightFix, 
           "bottom": marginBottomFix, 
           "left": marginLeftFix
-        });
+        }).delay(10);
+        $(allMastheads).css("margin", mastheadMargin);
       } else {
+        $('.active').next().css({
+          "position": "relative", 
+          "top": marginTopFix, 
+          "right": marginRightFix, 
+          "bottom": marginBottomFix, 
+          "left": marginLeftFix
+        }).delay(10);
         $(allMastheads).css("margin", mastheadMargin);
         $(this).css("margin", "0");
         $(this).next().css("margin", mastheadMargin);
+        if ($(this).next().css("top") == marginTopFix) {
+          $(this).next().css("top", "0");
+        }
       }
 
+      //Creates content-responsive accordion
       if (contentHeight < 400) {
-        console.log('first');
         if ($(this).hasClass('active')) {
           $(this).removeClass('active')
             .next(allContentPanels).slideUp(400);
@@ -53,7 +64,6 @@ $(function () {
             .next(allContentPanels).slideDown(400);
         }
       } else if (contentHeight < 800) {
-        console.log('second');
         if ($(this).hasClass('active')) {
           $(this).removeClass('active')
             .next(allContentPanels).slideUp(700);
@@ -73,7 +83,6 @@ $(function () {
             .next(allContentPanels).slideDown(800);
         }
       } else if (contentHeight < 1200) {
-        console.log('third');
         if ($(this).hasClass('active')) {
           $(this).removeClass('active')
             .next(allContentPanels).slideUp(1000);
@@ -93,7 +102,6 @@ $(function () {
             .next(allContentPanels).slideDown(1000);
         }
       } else {
-        console.log('fourth');
         console.log("Think about putting less content in there, no one wants to read that much anyway");
         if ($(this).hasClass('active')) {
           $(this).removeClass('active')
