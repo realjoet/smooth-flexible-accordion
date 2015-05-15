@@ -1,7 +1,7 @@
 $(function () {
 
     //Checking the position of panels
-    var allPanels = $('.insider-info').hide();
+    var allPanels = $('.content').hide();
     var mastheadHeight = $('.masthead').height();
 
     //working accordion code -- needs to be smoother
