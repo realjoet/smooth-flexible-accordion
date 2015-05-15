@@ -1,6 +1,5 @@
 
-HOW TO: SMOOTH ACCORDION
-========================
+##HOW TO: SMOOTH ACCORDION
 
 
 1. In your HTML, make a wrapper div with a class of accordion
