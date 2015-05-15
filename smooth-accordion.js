@@ -2,10 +2,11 @@ $(function () {
 
     //Checking the position of panels
     var allPanels = $('.content').hide();
-    var contentHeight = $('.content').height();
 
     //working accordion code -- needs to be smoother
     $('.accordion > .masthead').click(function (event) {
+      var contentHeight = $('.active').next().height();
+      console.log(contentHeight);
 
       if (contentHeight < 400) {
         if ($(this).hasClass('active')) {
