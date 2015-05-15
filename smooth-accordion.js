@@ -15,7 +15,7 @@ $(function () {
     allMastheads.css("margin", mastheadMargin);
 
     //working accordion code
-    $('.accordion > .masthead').click(function (event) {
+    $('.accordion > .masthead').click(function() {
       var contentHeight = $('.active').next().height();
       var topPos = $(this).position();
 
