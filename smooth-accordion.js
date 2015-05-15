@@ -51,9 +51,9 @@ $(function () {
           var topPos = $(this).position();
           
           if ($('.active').length && $('.active').index() < $(this).index()) {
-            $('body').animate({scrollTop: topPos.top - contentHeight}, 1200);
+            $('body').animate({scrollTop: topPos.top - contentHeight}, 1100);
           } else { 
-            $('body').animate({scrollTop: topPos.top}, 1200);
+            $('body').animate({scrollTop: topPos.top}, 1100);
           }
           
           $('.active').removeClass('active')
@@ -63,6 +63,23 @@ $(function () {
         }
       } else {
         console.log("Think about putting less content in there, no one wants to read that much anyway");
+        if ($(this).hasClass('active')) {
+          $(this).removeClass('active')
+            .next(allPanels).slideUp(1200);
+        } else {
+          var topPos = $(this).position();
+          
+          if ($('.active').length && $('.active').index() < $(this).index()) {
+            $('body').animate({scrollTop: topPos.top - contentHeight}, 1300);
+          } else { 
+            $('body').animate({scrollTop: topPos.top}, 1300);
+          }
+          
+          $('.active').removeClass('active')
+            .next(allPanels).slideUp(1200);
+          $(this).addClass('active')
+            .next(allPanels).slideDown(1200);
+        }
       }
     });
 
