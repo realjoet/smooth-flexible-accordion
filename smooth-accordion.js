@@ -17,7 +17,7 @@ $(function () {
           if ($('.active').length && $('.active').index() < $(this).index()) {
             $('body').animate({scrollTop: topPos.top - contentHeight}, 600);
           } else { 
-            $('body').animate({scrollTop: topPos.top}, 600);
+            $('body').animate({scrollTop: topPos.top}, 400);
           }
           
           $('.active').removeClass('active')
@@ -39,9 +39,9 @@ $(function () {
           }
           
           $('.active').removeClass('active')
-            .next(allPanels).slideUp(700);
+            .next(allPanels).slideUp(800);
           $(this).addClass('active')
-            .next(allPanels).slideDown(700);
+            .next(allPanels).slideDown(800);
         }
       } else if (contentHeight < 1200) {
         if ($(this).hasClass('active')) {
