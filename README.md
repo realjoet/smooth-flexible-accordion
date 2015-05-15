@@ -15,4 +15,4 @@
 ####----Check the smooth-accordion.html for an example of how to set it up----
 
 
-##### If you can't get this to work, feel free to message me on GitHub or at realjoet9@gmail.com. Please make sure you check for spelling and syntax errors before messaging me about problems.
+If you can't get this to work, feel free to message me on GitHub or at realjoet9@gmail.com. Please make sure you check for spelling and syntax errors before messaging me about problems.
