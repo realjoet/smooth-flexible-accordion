@@ -5,9 +5,9 @@ $(function () {
     var allMastheads = $('.masthead')
     var hideContentPanels = allContentPanels.hide();
     //If you want margin on your mastheads, enter it here just like CSS
-    var mastheadMargin = "0 0 10px";
-    //
-    var marginTopFix = "-10px";
+    var mastheadMargin = "0";
+    //Need to fill these in with negative values of the values you put in for mastheadMargin
+    var marginTopFix = "0";
     var marginRightFix = "0";
     var marginBottomFix = "0";
     var marginLeftFix = "0";
