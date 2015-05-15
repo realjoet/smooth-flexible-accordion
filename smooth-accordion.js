@@ -6,14 +6,14 @@ $(function () {
     //working accordion code -- needs to be smoother
     $('.accordion > .masthead').click(function (event) {
       var contentHeight = $('.active').next().height();
+      var topPos = $(this).position();
 
       if (contentHeight < 400) {
         if ($(this).hasClass('active')) {
           $(this).removeClass('active')
             .next(allPanels).slideUp(400);
+          $('body').animate({scrollTop: topPos.top}, 400);
         } else {
-          var topPos = $(this).position();
-          
           if ($('.active').length && $('.active').index() < $(this).index()) {
             $('body').animate({scrollTop: topPos.top - contentHeight}, 600);
           } else { 
@@ -29,6 +29,7 @@ $(function () {
         if ($(this).hasClass('active')) {
           $(this).removeClass('active')
             .next(allPanels).slideUp(700);
+          $('body').animate({scrollTop: topPos.top}, 400);
         } else {
           var topPos = $(this).position();
           
@@ -47,6 +48,7 @@ $(function () {
         if ($(this).hasClass('active')) {
           $(this).removeClass('active')
             .next(allPanels).slideUp(1000);
+          $('body').animate({scrollTop: topPos.top}, 400);
         } else {
           var topPos = $(this).position();
           
@@ -66,6 +68,7 @@ $(function () {
         if ($(this).hasClass('active')) {
           $(this).removeClass('active')
             .next(allPanels).slideUp(1200);
+          $('body').animate({scrollTop: topPos.top}, 400);
         } else {
           var topPos = $(this).position();
           
