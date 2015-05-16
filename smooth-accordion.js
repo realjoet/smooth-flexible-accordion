@@ -72,7 +72,6 @@ $(function () {
     } else if (contentHeight < 1200) {
       accordionFunc(el, 1000, 1200);
     } else {
-      console.log("Think about putting less content in there, no one wants to read that much anyway");
       accordionFunc(el, 1200, 1400);
     }
   });
