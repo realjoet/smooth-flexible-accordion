@@ -17,27 +17,26 @@ $(function () {
     //working accordion code
     $('.accordion > .masthead').click(function() {
       var el = $(this);
+      var activeEl = $('.active');
       var contentHeight = $('.active').next().height();
       var topPos = $(this).position();
 
+      function marginFix(el) {
+        $(el).next().css({
+          "position": "relative", 
+          "top": marginTopFix, 
+          "right": marginRightFix, 
+          "bottom": marginBottomFix, 
+          "left": marginLeftFix
+        }).delay(10);
+      }
+
       //Adjusts masthead margins
       if ($(this).hasClass('active')) {
-        $(this).next().css({
-          "position": "relative", 
-          "top": marginTopFix, 
-          "right": marginRightFix, 
-          "bottom": marginBottomFix, 
-          "left": marginLeftFix
-        }).delay(10);
+        marginFix(el);
         $(allMastheads).css("margin", mastheadMargin);
       } else {
-        $('.active').next().css({
-          "position": "relative", 
-          "top": marginTopFix, 
-          "right": marginRightFix, 
-          "bottom": marginBottomFix, 
-          "left": marginLeftFix
-        }).delay(10);
+        marginFix(activeEl);
         $(allMastheads).css("margin", mastheadMargin);
         $(this).css("margin", "0");
         $(this).next().css("margin", mastheadMargin);
