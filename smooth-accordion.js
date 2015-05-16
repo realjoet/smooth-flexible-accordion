@@ -51,16 +51,16 @@ $(function () {
     }
 
     //Adjusts masthead margins
-    if ($(this).hasClass('active')) {
+    if (el.hasClass('active')) {
       marginFix(el);
       $(allMastheads).css("margin", mastheadMargin);
     } else {
       marginFix(activeEl);
       $(allMastheads).css("margin", mastheadMargin);
-      $(this).css("margin", "0");
-      $(this).next().css("margin", mastheadMargin);
-      if ($(this).next().css("top") == marginTopFix) {
-        $(this).next().css("top", "0");
+      el.css("margin", "0");
+      el.next().css("margin", mastheadMargin);
+      if (el.next().css("top") == marginTopFix) {
+        el.next().css("top", "0");
       }
     }
 
