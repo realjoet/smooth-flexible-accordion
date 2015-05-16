@@ -1,7 +1,7 @@
 $(function () {
   //Checking the position of panels
-  var allContentPanels = $('.content')
-  var allMastheads = $('.masthead')
+  var allContentPanels = $('.content');
+  var allMastheads = $('.masthead');
   var hideContentPanels = allContentPanels.hide();
   //If you want margin on your mastheads, enter it here just like CSS
   var mastheadMargin = "0";
