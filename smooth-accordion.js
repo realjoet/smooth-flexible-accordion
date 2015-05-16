@@ -67,14 +67,14 @@ $(function () {
 
       //Creates content-responsive accordion
       if (contentHeight < 400) {
-        accordionFunc(el, 400, 600);
+        accordionFunc(el, 600, 800);
       } else if (contentHeight < 800) {
-        accordionFunc(el, 900, 1000);
+        accordionFunc(el, 800, 1000);
       } else if (contentHeight < 1200) {
-        accordionFunc(el, 1000, 1100);
+        accordionFunc(el, 1000, 1200);
       } else {
         console.log("Think about putting less content in there, no one wants to read that much anyway");
-        accordionFunc(el, 1200, 1300);
+        accordionFunc(el, 1200, 1400);
       }
     });
 
