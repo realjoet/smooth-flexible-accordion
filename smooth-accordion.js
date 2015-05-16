@@ -16,6 +16,7 @@ $(function () {
 
     //working accordion code
     $('.accordion > .masthead').click(function() {
+      var el = $(this);
       var contentHeight = $('.active').next().height();
       var topPos = $(this).position();
 
@@ -45,82 +46,36 @@ $(function () {
         }
       }
 
+      //Accordion function
+      function accordionFunc(el, animationTime, animationTime2) {
+        if (el.hasClass('active')) {
+          el.removeClass('active')
+            .next(allContentPanels).slideUp(animationTime);
+          $('body').animate({scrollTop: topPos.top}, animationTime);
+        } else {
+          if ($('.active').length && $('.active').index() < el.index()) {
+            $('body').animate({scrollTop: topPos.top - contentHeight}, animationTime2);
+          } else { 
+            $('body').animate({scrollTop: topPos.top}, animationTime2);
+          }
+          
+          $('.active').removeClass('active')
+            .next(allContentPanels).slideUp(animationTime);
+          el.addClass('active')
+            .next(allContentPanels).slideDown(animationTime);
+        }
+      }
+
       //Creates content-responsive accordion
       if (contentHeight < 400) {
-        if ($(this).hasClass('active')) {
-          $(this).removeClass('active')
-            .next(allContentPanels).slideUp(400);
-          $('body').animate({scrollTop: topPos.top}, 400);
-        } else {
-          if ($('.active').length && $('.active').index() < $(this).index()) {
-            $('body').animate({scrollTop: topPos.top - contentHeight}, 600);
-          } else { 
-            $('body').animate({scrollTop: topPos.top}, 400);
-          }
-          
-          $('.active').removeClass('active')
-            .next(allContentPanels).slideUp(400);
-          $(this).addClass('active')
-            .next(allContentPanels).slideDown(400);
-        }
+        accordionFunc(el, 400, 600);
       } else if (contentHeight < 800) {
-        if ($(this).hasClass('active')) {
-          $(this).removeClass('active')
-            .next(allContentPanels).slideUp(700);
-          $('body').animate({scrollTop: topPos.top}, 400);
-        } else {
-          var topPos = $(this).position();
-          
-          if ($('.active').length && $('.active').index() < $(this).index()) {
-            $('body').animate({scrollTop: topPos.top - contentHeight}, 1000);
-          } else { 
-            $('body').animate({scrollTop: topPos.top}, 1000);
-          }
-          
-          $('.active').removeClass('active')
-            .next(allContentPanels).slideUp(800);
-          $(this).addClass('active')
-            .next(allContentPanels).slideDown(800);
-        }
+        accordionFunc(el, 900, 1000);
       } else if (contentHeight < 1200) {
-        if ($(this).hasClass('active')) {
-          $(this).removeClass('active')
-            .next(allContentPanels).slideUp(1000);
-          $('body').animate({scrollTop: topPos.top}, 400);
-        } else {
-          var topPos = $(this).position();
-          
-          if ($('.active').length && $('.active').index() < $(this).index()) {
-            $('body').animate({scrollTop: topPos.top - contentHeight}, 1100);
-          } else { 
-            $('body').animate({scrollTop: topPos.top}, 1100);
-          }
-          
-          $('.active').removeClass('active')
-            .next(allContentPanels).slideUp(1000);
-          $(this).addClass('active')
-            .next(allContentPanels).slideDown(1000);
-        }
+        accordionFunc(el, 1000, 1100);
       } else {
         console.log("Think about putting less content in there, no one wants to read that much anyway");
-        if ($(this).hasClass('active')) {
-          $(this).removeClass('active')
-            .next(allContentPanels).slideUp(1200);
-          $('body').animate({scrollTop: topPos.top}, 400);
-        } else {
-          var topPos = $(this).position();
-          
-          if ($('.active').length && $('.active').index() < $(this).index()) {
-            $('body').animate({scrollTop: topPos.top - contentHeight}, 1300);
-          } else { 
-            $('body').animate({scrollTop: topPos.top}, 1300);
-          }
-          
-          $('.active').removeClass('active')
-            .next(allContentPanels).slideUp(1200);
-          $(this).addClass('active')
-            .next(allContentPanels).slideDown(1200);
-        }
+        accordionFunc(el, 1200, 1300);
       }
     });
 
