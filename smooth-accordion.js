@@ -18,7 +18,7 @@ $(function () {
     var el = $(this);
     var activeEl = $('.active');
     var contentHeight = $('.active').next().height();
-    var topPos = $(this).position();
+    var topPos = $(this).position().top;
 
     function marginFix(el) {
       $(el).next().css({
@@ -35,12 +35,12 @@ $(function () {
       if (el.hasClass('active')) {
         el.removeClass('active')
           .next(allContentPanels).slideUp(animationTime);
-        $('body').animate({scrollTop: topPos.top}, animationTime);
+        $('body').animate({scrollTop: topPos}, animationTime);
       } else {
         if (activeEl.length && activeEl.index() < el.index()) {
-          $('body').animate({scrollTop: topPos.top - contentHeight}, animationTime2);
+          $('body').animate({scrollTop: topPos - contentHeight}, animationTime2);
         } else { 
-          $('body').animate({scrollTop: topPos.top}, animationTime2);
+          $('body').animate({scrollTop: topPos}, animationTime2);
         }
         
         activeEl.removeClass('active')
